@@ -8,6 +8,10 @@ import { spawn } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 import os from 'os';
+import * as groqConfig from './groq-config';
+
+// Check Groq API key on startup
+groqConfig.logGroqStatus();
 
 export interface NewsItem {
   id?: string;
@@ -94,7 +98,7 @@ class AIDisasterDetector {
     const cached = this.getCached(newsItem);
     if (cached) return cached;
     
-    if (!this.scriptExists || !process.env.GROQ_API_KEY) {
+    if (!this.scriptExists || !groqConfig.isGroqConfigured()) {
       // Fallback to rule-based approach if Python script or API key is unavailable
       console.warn("⚠️ Groq API key not found. Using fallback analysis.");
       return this._fallbackAnalysis(newsItem);
@@ -114,7 +118,7 @@ class AIDisasterDetector {
         const env = { ...process.env };
         
         // Spawn Python process with environment variables
-        const pythonProcess = spawn('python3', [this.pythonScript, tempFile], { env });
+        const pythonProcess = spawn('python3', [this.pythonScript, '--file', tempFile], { env });
         
         let output = '';
         let errorOutput = '';
