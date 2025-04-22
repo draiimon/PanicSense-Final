@@ -9,7 +9,23 @@ import express from 'express';
 import session from 'express-session';
 import { Server } from 'http';
 import { WebSocketServer } from 'ws';
-import { log, setupVite, serveStatic } from './vite';
+// Import log function that works without Vite
+function defaultLog(message: string, source = "express") {
+  const formattedTime = new Date().toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    second: "2-digit",
+    hour12: true,
+  });
+  console.log(`${formattedTime} [${source}] ${message}`);
+}
+
+// Declare the function types but initialize later
+let log: (message: string, source?: string) => void = defaultLog;
+let setupVite: ((app: any, server: any) => Promise<void>) | null = null;
+let serveStatic: ((app: any) => void) | null = null;
+
+// We'll initialize these inside the async IIFE below
 import { registerRoutes } from './routes';
 import { simpleDbFix } from './db-simple-fix';
 import { cleanupAndExit } from './index';
@@ -27,6 +43,21 @@ export const SERVER_START_TIMESTAMP = new Date().getTime();
     console.log('========================================');
     console.log(`Starting server initialization at: ${new Date().toISOString()}`);
     console.log('========================================');
+    
+    // Conditionally load Vite modules if needed
+    if (process.env.NODE_ENV !== 'production' && process.env.SKIP_VITE_MIDDLEWARE !== 'true') {
+      try {
+        console.log('Attempting to load Vite modules...');
+        const viteModule = await import('./vite');
+        log = viteModule.log;
+        setupVite = viteModule.setupVite;
+        serveStatic = viteModule.serveStatic;
+        console.log('✅ Vite modules loaded successfully');
+      } catch (error) {
+        console.warn('⚠️ Failed to load Vite modules, using fallbacks:', error);
+        // Keep using default implementations
+      }
+    }
 
     // Database initialization
     if (process.env.NODE_ENV !== 'production') {
@@ -50,13 +81,29 @@ export const SERVER_START_TIMESTAMP = new Date().getTime();
     
     // Setup Vite or serve static files
     console.log(`Current NODE_ENV: ${process.env.NODE_ENV}`);
-    if (process.env.NODE_ENV !== 'production') {
+    if (process.env.NODE_ENV !== 'production' && process.env.SKIP_VITE_MIDDLEWARE !== 'true') {
       console.log('Running in development mode, setting up Vite middleware...');
-      await setupVite(app, server);
-      console.log('Vite middleware setup complete');
+      if (setupVite) {
+        await setupVite(app, server);
+        console.log('Vite middleware setup complete');
+      } else {
+        console.log('Vite middleware skipped - not available');
+      }
     } else {
       console.log('Running in production mode, serving static files...');
-      serveStatic(app);
+      // In production, just use express.static if serveStatic is not available
+      if (serveStatic) {
+        serveStatic(app);
+      } else {
+        // Simple implementation of serveStatic for production
+        const path = await import('path');
+        const distPath = path.join(process.cwd(), 'dist', 'public');
+        console.log(`Serving static files from: ${distPath}`);
+        app.use(express.static(distPath));
+        app.use('*', (_req, res) => {
+          res.sendFile(path.join(distPath, 'index.html'));
+        });
+      }
       console.log('Static file serving setup complete');
     }
     
