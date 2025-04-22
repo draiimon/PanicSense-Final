@@ -3,7 +3,7 @@ builder = "nixpacks"
 buildCommand = "npm install && npm run build"
 
 [deploy]
-startCommand = "node server/index-wrapper.js"
+startCommand = "node --experimental-modules dist/server/index-wrapper.js"
 healthcheckPath = "/"
 healthcheckTimeout = 300
 restartPolicyType = "on_failure"
@@ -13,3 +13,4 @@ install-cmd = "apt-get update && apt-get install -y python3 python3-pip && pip i
 
 [variables]
 NODE_ENV = "production"
+RUNTIME_ENV = "railway"

@@ -4,13 +4,16 @@ services:
     runtime: node
     region: oregon
     plan: free
+    nodeVersion: 20.x
     buildCommand: bash ./build.sh
-    startCommand: node render-start.js
+    startCommand: node --experimental-modules render-start.js
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
         value: 10000
+      - key: RUNTIME_ENV
+        value: render
       - key: SESSION_SECRET
         generateValue: true
       - key: DATABASE_URL

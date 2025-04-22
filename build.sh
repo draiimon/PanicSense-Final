@@ -8,23 +8,21 @@ npm install
 
 # Build client-side files
 echo "Building client-side files..."
-npm run dev:build || npx vite build
+npx vite build
 
-# Compile TypeScript files
-echo "Compiling TypeScript files..."
-npx tsc
+# Create dist directory
+mkdir -p dist/server
 
-# Compile index-wrapper.ts specifically
-echo "Compiling server/index-wrapper.ts..."
-npx tsc --skipLibCheck server/index-wrapper.ts --outDir dist/server
+# Compile TypeScript files using esbuild (faster than tsc)
+echo "Compiling TypeScript files with esbuild..."
+npx esbuild server/index-wrapper.ts --platform=node --packages=external --bundle --format=esm --outdir=dist/server
 
 # Copy necessary files to dist directory
 echo "Copying essential files to dist..."
-mkdir -p dist/server
 cp -r server/*.js dist/server/ 2>/dev/null || true
 cp -r server/db-*.js dist/server/ 2>/dev/null || true
 
-# Create Render start script
+# Create Render start script using ES modules syntax
 echo "Creating Render start script..."
 cat > render-start.js << EOF
 /**
@@ -35,8 +33,8 @@ cat > render-start.js << EOF
 // Set production environment
 process.env.NODE_ENV = 'production';
 
-// Import the compiled server
-require('./dist/server/index-wrapper.js');
+// Import the compiled server using ES module syntax
+import './dist/server/index-wrapper.js';
 EOF
 
 echo "Build process completed successfully!"
