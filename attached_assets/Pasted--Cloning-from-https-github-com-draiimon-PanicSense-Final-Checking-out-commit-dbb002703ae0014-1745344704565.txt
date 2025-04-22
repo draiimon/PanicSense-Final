@@ -1,0 +1,78 @@
+> Cloning from https://github.com/draiimon/PanicSense-Final
+==> Checking out commit dbb002703ae0014b71cbb849fe1d3b8a9086c4d4 in branch main
+==> Using Node.js version 22.14.0 (default)
+==> Docs on specifying a Node.js version: https://render.com/docs/node-version
+==> Using Bun version 1.1.0 (default)
+==> Docs on specifying a bun version: https://render.com/docs/bun-version
+==> Running build command 'bash ./build.sh'...
+Starting build process for Render deployment...
+added 502 packages, and audited 503 packages in 8s
+71 packages are looking for funding
+  run `npm fund` for details
+found 0 vulnerabilities
+Building client-side files...
+npm error Missing script: "dev:build"
+npm error
+npm error Did you mean this?
+npm error   npm rebuild # Rebuild a package
+npm error
+npm error To see a list of scripts, run:
+npm error   npm run
+npm error A complete log of this run can be found in: /opt/render/.cache/_logs/2025-04-22T17_54_59_650Z-debug-0.log
+failed to load config from /opt/render/project/src/vite.config.ts
+error during build:
+Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /opt/render/project/src/node_modules/.vite-temp/vite.config.ts.timestamp-1745344508597-edb2a5a1a6ecb.mjs
+    at Object.getPackageJSONURL (node:internal/modules/package_json_reader:268:9)
+    at packageResolve (node:internal/modules/esm/resolve:768:81)
+    at moduleResolve (node:internal/modules/esm/resolve:854:18)
+    at defaultResolve (node:internal/modules/esm/resolve:984:11)
+    at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:685:12)
+    at #cachedDefaultResolve (node:internal/modules/esm/loader:634:25)
+    at ModuleLoader.resolve (node:internal/modules/esm/loader:617:38)
+    at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:273:38)
+    at ModuleJob._link (node:internal/modules/esm/module_job:135:49)
+Compiling TypeScript files...
+                                                                               
+                This is not the tsc command you are looking for                
+                                                                               
+To get access to the TypeScript compiler, tsc, from the command line either:
+- Use npm install typescript to first add TypeScript to your project before using npx
+- Use yarn to avoid accidentally running code from un-installed packages
+Compiling server/index-wrapper.ts...
+                                                                               
+                This is not the tsc command you are looking for                
+                                                                               
+To get access to the TypeScript compiler, tsc, from the command line either:
+- Use npm install typescript to first add TypeScript to your project before using npx
+- Use yarn to avoid accidentally running code from un-installed packages
+Copying essential files to dist...
+Creating Render start script...
+Build process completed successfully!
+==> Uploading build...
+==> Uploaded in 5.6s. Compression took 2.9s
+==> Build successful 🎉
+==> Deploying...
+==> Running ' node render-start.js'
+file:///opt/render/project/src/render-start.js:10
+require('./dist/server/index-wrapper.js');
+^
+ReferenceError: require is not defined in ES module scope, you can use import instead
+This file is being treated as an ES module because it has a '.js' file extension and '/opt/render/project/src/package.json' contains "type": "module". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.
+    at file:///opt/render/project/src/render-start.js:10:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+Node.js v22.14.0
+==> Exited with status 1
+==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
+==> Running ' node render-start.js'
+file:///opt/render/project/src/render-start.js:10
+require('./dist/server/index-wrapper.js');
+^
+ReferenceError: require is not defined in ES module scope, you can use import instead
+This file is being treated as an ES module because it has a '.js' file extension and '/opt/render/project/src/package.json' contains "type": "module". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.
+    at file:///opt/render/project/src/render-start.js:10:1
+    at ModuleJob.run (node:internal/modules/esm/module_job:271:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:578:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:116:5)
+Node.js v22.14.0
