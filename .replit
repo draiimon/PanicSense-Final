@@ -1,7 +1,8 @@
-modules = ["nodejs-20"]
+modules = ["nodejs-20", "python-3.11"]
 
 [nix]
 channel = "stable-24_05"
+packages = ["glibcLocales"]
 
 [workflows]
 runButton = "Project"
@@ -18,6 +19,10 @@ args = "JavaScript Runner"
 [[workflows.workflow.tasks]]
 task = "workflow.run"
 args = "run_hello_world"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "PanicSense"
 
 [[workflows.workflow]]
 name = "JavaScript Runner"
@@ -47,5 +52,24 @@ task = "packager.installForAll"
 task = "shell.exec"
 args = "node hello-world.js"
 
+[[workflows.workflow]]
+name = "PanicSense"
+author = "agent"
+
+[workflows.workflow.metadata]
+agentRequireRestartOnSave = false
+
+[[workflows.workflow.tasks]]
+task = "packager.installForAll"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "cd PanicSense && npm run dev"
+waitForPort = 5000
+
 [deployment]
 run = ["sh", "-c", "node hello-world.js"]
+
+[[ports]]
+localPort = 5000
+externalPort = 80
