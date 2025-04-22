@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: panicsense-app
+    restart: always
+    ports:
+      - "10000:10000"
+    environment:
+      - NODE_ENV=production
+      - PORT=10000
+      # Add your database URL here or use environment variables
+      - DATABASE_URL=${DATABASE_URL}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+    volumes:
+      # For local development, mount these directories to allow live reloading
+      - ./server:/app/server:ro
+      - ./client:/app/client:ro
+      - ./shared:/app/shared:ro
+      - ./python:/app/python:ro
+      - ./uploads:/app/uploads
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "http://localhost:10000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+  # Add database service for local development
+  # Comment this out when deploying to Render, as Render provides its own PostgreSQL
+  db:
+    image: postgres:14
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=panicsense
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

@@ -1,0 +1,42 @@
+# Node modules
+node_modules
+npm-debug.log
+
+# Environment variables
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Git and GitHub
+.git
+.github
+.gitignore
+
+# Build files
+dist
+build
+
+# Logs
+logs
+*.log
+
+# Temporary files
+.DS_Store
+.vscode
+.idea
+*.swp
+*.swo
+
+# Backup files
+*.bak
+server.js.bak
+index.js.bak
+
+# Unnecessary files for the Docker image
+README.md
+LICENSE
+docker-compose.yml
+Dockerfile
+.dockerignore
