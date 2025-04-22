@@ -64,7 +64,7 @@ task = "packager.installForAll"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "cd PanicSense && npm run dev"
+args = "npm run dev"
 waitForPort = 5000
 
 [deployment]
