@@ -15,7 +15,11 @@ groqConfig.logGroqStatus();
 
 class AIDisasterDetector {
   constructor() {
-    this.pythonScript = path.join(process.cwd(), 'python', 'process.py');
+    // Try server/python/process.py first, then fallback to python/process.py
+    this.pythonScript = path.join(process.cwd(), 'server', 'python', 'process.py');
+    if (!fs.existsSync(this.pythonScript)) {
+      this.pythonScript = path.join(process.cwd(), 'python', 'process.py');
+    }
     this.cache = new Map(); // Simple memory cache to avoid repeated analysis
     this.cacheExpiry = 60 * 60 * 1000; // Cache expires after 1 hour (in milliseconds)
     
