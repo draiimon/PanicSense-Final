@@ -21,6 +21,11 @@ pids
 *.seed
 *.pid.lock
 
+# Backup files
+*.bak
+server.js.bak
+index.js.bak
+
 # Directory for uploaded files
 uploads/temp
 uploads/data

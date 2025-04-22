@@ -14,43 +14,7 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "JavaScript Runner"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "run_hello_world"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
 args = "PanicSense"
-
-[[workflows.workflow]]
-name = "JavaScript Runner"
-author = "agent"
-
-[workflows.workflow.metadata]
-agentRequireRestartOnSave = false
-
-[[workflows.workflow.tasks]]
-task = "packager.installForAll"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "node hello-world.js"
-
-[[workflows.workflow]]
-name = "run_hello_world"
-author = "agent"
-
-[workflows.workflow.metadata]
-agentRequireRestartOnSave = false
-
-[[workflows.workflow.tasks]]
-task = "packager.installForAll"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "node hello-world.js"
 
 [[workflows.workflow]]
 name = "PanicSense"
