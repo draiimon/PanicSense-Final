@@ -1,0 +1,15 @@
+[build]
+builder = "nixpacks"
+buildCommand = "npm install && npm run build"
+
+[deploy]
+startCommand = "node server/index-wrapper.js"
+healthcheckPath = "/"
+healthcheckTimeout = 300
+restartPolicyType = "on_failure"
+
+[nixpacks]
+install-cmd = "apt-get update && apt-get install -y python3 python3-pip && pip install pandas numpy langdetect requests"
+
+[variables]
+NODE_ENV = "production"
