@@ -6,6 +6,10 @@ echo "Starting build process for Render deployment..."
 # Install required packages
 npm install
 
+# Install Vite globally to ensure it's available
+echo "Installing Vite globally..."
+npm install -g vite
+
 # Build client-side files
 echo "Building client-side files..."
 npx vite build
