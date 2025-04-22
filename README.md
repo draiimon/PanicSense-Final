@@ -10,31 +10,22 @@ PanicSense is a comprehensive real-time disaster news and sentiment analysis pla
 - Neon database for robust data persistence
 - Multi-source disaster news aggregation and validation system
 
-## Deployment to Render
+## Deployment to Render (UPDATED SIMPLE METHOD)
 
-### One-Click Deployment (Recommended)
-The easiest way to deploy PanicSense is by using the included `render.yaml` file:
+### Simplified Deployment
 
 1. Fork this repository to your GitHub account
 2. Log in to [Render](https://render.com)
-3. Click "New" and select "Blueprint"
-4. Connect your GitHub account and select this repository
-5. Render will automatically detect the `render.yaml` and set up the project!
-6. Make sure to add your `GROQ_API_KEY` in the environment variables section
+3. Create a new Web Service and select your forked repository
+4. Configure as follows:
+   - **Build Command**: `npm install`
+   - **Start Command**: `node start-server.js`
+5. Add these environment variables:
+   - `NODE_ENV`: production
+   - `DATABASE_URL`: [Your PostgreSQL connection string]
+   - `GROQ_API_KEY`: [Your GROQ API key for AI features]
 
-### Manual Deployment
-If you prefer manual deployment:
-
-1. Create a new PostgreSQL database on Render
-2. Create a new Web Service:
-   - Build Command: `bash ./build.sh`
-   - Start Command: `node render-start.js`
-   - Environment Variables:
-     - `NODE_ENV`: production
-     - `PORT`: 10000
-     - `DATABASE_URL`: [Your PostgreSQL connection string]
-     - `SESSION_SECRET`: [Generate a random string]
-     - `GROQ_API_KEY`: [Your GROQ API key for AI features]
+That's it! This method bypasses vite build issues while preserving all functionality.
 
 ## Local Development
 To run the project locally:
