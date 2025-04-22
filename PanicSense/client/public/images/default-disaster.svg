@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="400px" viewBox="0 0 800 400" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Default Disaster Image</title>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#5B21B6" offset="0%"></stop>
+            <stop stop-color="#3B82F6" offset="50%"></stop>
+            <stop stop-color="#8B5CF6" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Disaster-Image" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect fill="url(#linearGradient-1)" x="0" y="0" width="800" height="400"></rect>
+        <g id="Alert-Icon" transform="translate(350.000000, 150.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <path d="M50,0 C22.386,0 0,22.386 0,50 C0,77.614 22.386,100 50,100 C77.614,100 100,77.614 100,50 C100,22.386 77.614,0 50,0 Z M50,90 C27.909,90 10,72.091 10,50 C10,27.909 27.909,10 50,10 C72.091,10 90,27.909 90,50 C90,72.091 72.091,90 50,90 Z" id="Circle"></path>
+            <path d="M50,25 C53.866,25 57,28.134 57,32 L57,55 C57,58.866 53.866,62 50,62 C46.134,62 43,58.866 43,55 L43,32 C43,28.134 46.134,25 50,25 Z" id="Exclamation-Mark"></path>
+            <circle id="Dot" cx="50" cy="75" r="7"></circle>
+        </g>
+        <text id="Disaster-Alert" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#FFFFFF">
+            <tspan x="300" y="265">Disaster Alert</tspan>
+        </text>
+    </g>
+</svg>

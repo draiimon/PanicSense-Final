@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="800px" viewBox="0 0 800 800" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+      <stop stop-color="#4F46E5" offset="0%"></stop>
+      <stop stop-color="#7C3AED" offset="50%"></stop>
+      <stop stop-color="#DB2777" offset="100%"></stop>
+    </linearGradient>
+    <filter x="-10%" y="-10%" width="120%" height="120%" filterUnits="objectBoundingBox" id="filter-1">
+      <feGaussianBlur stdDeviation="20" in="SourceGraphic"></feGaussianBlur>
+    </filter>
+  </defs>
+  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <!-- Background Circle with Blur Effect -->
+    <circle fill="url(#linearGradient-1)" filter="url(#filter-1)" cx="400" cy="400" r="300"></circle>
+    
+    <!-- Alert Icon -->
+    <g transform="translate(200, 180)" fill="#FFFFFF" fill-rule="nonzero">
+      <path d="M400,60 C400,26.863 373.137,0 340,0 L60,0 C26.863,0 0,26.863 0,60 L0,340 C0,373.137 26.863,400 60,400 L340,400 C373.137,400 400,373.137 400,340 L400,60 Z M375,340 C375,359.33 359.33,375 340,375 L60,375 C40.67,375 25,359.33 25,340 L25,60 C25,40.67 40.67,25 60,25 L340,25 C359.33,25 375,40.67 375,60 L375,340 Z" fill-opacity="0.9"></path>
+      
+      <!-- Warning Triangle -->
+      <path d="M200,50 L350,320 L50,320 L200,50 Z" fill-opacity="0.9"></path>
+      
+      <!-- Exclamation Mark -->
+      <rect x="190" y="130" width="20" height="120" rx="10"></rect>
+      <circle cx="200" cy="280" r="12"></circle>
+    </g>
+    
+    <!-- Text "PanicSense" -->
+    <text font-family="Arial-BoldMT, Arial" font-size="64" font-weight="bold" fill="#FFFFFF" text-anchor="middle" x="400" y="600">
+      PanicSense
+    </text>
+    
+    <!-- Tagline -->
+    <text font-family="Arial, Arial" font-size="24" font-weight="normal" fill="#FFFFFF" fill-opacity="0.8" text-anchor="middle" x="400" y="640">
+      Disaster Monitoring & Response
+    </text>
+  </g>
+</svg>

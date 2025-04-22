@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PanicSense - Disaster Monitoring Platform</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        h1 {
+            margin: 0;
+            padding: 10px;
+            font-size: 2.5rem;
+        }
+        .main-content {
+            padding: 40px 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: 20px;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.2rem;
+            color: #666;
+        }
+        .spinner {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #333;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>PanicSense</h1>
+            <p>Advanced Disaster Monitoring and Analysis Platform</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p>Loading application...</p>
+                <p>Please wait while we prepare your experience.</p>
+                <p>If the application doesn't load within a few seconds, <a href="/">refresh the page</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 PanicSense Platform. All rights reserved.</p>
+            <p>Designed for disaster monitoring, analysis, and community resilience</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Redirect to the main app after a short delay
+        setTimeout(() => {
+            window.location.href = '/app';
+        }, 3000);
+    </script>
+</body>
+</html>

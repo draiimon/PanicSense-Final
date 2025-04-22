@@ -1,0 +1,1 @@
+Regions colored by disaster type

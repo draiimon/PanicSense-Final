@@ -1,0 +1,37 @@
+services:
+  - type: web
+    name: disaster-monitoring-ph
+    env: docker
+    plan: free
+    region: singapore
+    buildCommand: ""
+    startCommand: ""
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: TZ
+        value: Asia/Manila
+      - key: PYTHON_PATH
+        value: python3
+      - key: PYTHON_SERVICE_ENABLED
+        value: "true"
+      - key: ENABLE_SOCIAL_SCRAPER
+        value: "false"
+      - key: RUNTIME_ENV
+        value: render
+      - key: DB_SSL_REQUIRED
+        value: "true"
+      - key: NODE_TLS_REJECT_UNAUTHORIZED
+        value: "0"
+      - key: DEBUG_MODE
+        value: "false"
+      - key: VERBOSE_LOGGING
+        value: "false"
+      - key: DATABASE_URL
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GROQ_MODEL
+        value: llama3-70b-8192

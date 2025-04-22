@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="640px" height="360px" viewBox="0 0 640 360" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+      <stop stop-color="#4F46E5" offset="0%"></stop>
+      <stop stop-color="#7C3AED" offset="50%"></stop>
+      <stop stop-color="#DB2777" offset="100%"></stop>
+    </linearGradient>
+    <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-2">
+      <stop stop-color="#7C3AED" offset="0%"></stop>
+      <stop stop-color="#DB2777" offset="100%"></stop>
+    </linearGradient>
+    <filter x="-10%" y="-10%" width="120%" height="120%" filterUnits="objectBoundingBox" id="filter-blur">
+      <feGaussianBlur stdDeviation="15" in="SourceGraphic"></feGaussianBlur>
+    </filter>
+  </defs>
+  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+    <!-- Background with Gradient -->
+    <rect fill="url(#linearGradient-1)" x="0" y="0" width="640" height="360" rx="8"></rect>
+    
+    <!-- Decorative Elements -->
+    <circle fill="url(#linearGradient-2)" filter="url(#filter-blur)" cx="200" cy="180" r="100"></circle>
+    <circle fill="url(#linearGradient-2)" filter="url(#filter-blur)" cx="450" cy="120" r="60"></circle>
+    
+    <!-- Pattern Overlay -->
+    <rect fill-opacity="0.1" fill="#FFFFFF" x="0" y="0" width="640" height="360" 
+          style="mask-image: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'10\' height=\'10\'><rect x=\'0\' y=\'0\' width=\'5\' height=\'5\' fill=\'white\'/><rect x=\'5\' y=\'5\' width=\'5\' height=\'5\' fill=\'white\'/></svg>'); mask-size: 10px 10px;"></rect>
+    
+    <!-- Logo Icon -->
+    <g transform="translate(270, 100)">
+      <path d="M50,0 L100,80 L0,80 Z" fill="#FFFFFF" fill-opacity="0.9"></path>
+      <rect x="45" y="20" width="10" height="35" rx="5" fill="#FFFFFF"></rect>
+      <circle cx="50" cy="65" r="5" fill="#FFFFFF"></circle>
+    </g>
+    
+    <!-- Text "PanicSense" -->
+    <text font-family="Arial-BoldMT, Arial" font-size="32" font-weight="bold" fill="#FFFFFF" text-anchor="middle" x="320" y="230">
+      PanicSense
+    </text>
+    
+    <!-- Tagline -->
+    <text font-family="Arial, Arial" font-size="16" font-weight="normal" fill="#FFFFFF" fill-opacity="0.8" text-anchor="middle" x="320" y="260">
+      Loading Disaster News...
+    </text>
+  </g>
+</svg>
