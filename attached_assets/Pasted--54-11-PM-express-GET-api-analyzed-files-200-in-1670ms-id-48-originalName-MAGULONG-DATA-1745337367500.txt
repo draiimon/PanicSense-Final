@@ -1,0 +1,61 @@
+:54:11 PM [express] GET /api/analyzed-files 200 in 1670ms :: [{"id":48,"originalName":"MAGULONG DATA! (1).csv","storedName":"batch-iEiCKqECpN8aG9HouTR3j-MAGULONG...
+WebSocket client disconnected
+🧹 Starting cleanup of error sessions...
+✅ Cleared 0 error/stale sessions
+3:54:15 PM [express] POST /api/cleanup-error-sessions 200 in 164ms :: {"success":true,"clearedCount":0,"message":"Successfully cleared 0 error or stale sessions"}
+⭐ No active sessions found in database
+3:54:15 PM [express] GET /api/active-upload-session 304 in 168ms :: {"sessionId":null}
+3:54:15 PM [express] GET /api/disaster-events 200 in 162ms :: [{"id":168,"name":"Typhoon in Ilocos Sur","description":"Based on 29 reports from the community. Pri...
+3:54:16 PM [express] GET /api/sentiment-posts 200 in 645ms :: [{"id":1267,"text":"Our community is coming together to rebuild. We will overcome this disaster.","t...
+New WebSocket client connected
+⭐ No active sessions found in database
+3:54:16 PM [express] GET /api/active-upload-session 304 in 165ms :: {"sessionId":null}
+3:54:16 PM [express] GET /api/analyzed-files 200 in 1120ms :: [{"id":48,"originalName":"MAGULONG DATA! (1).csv","storedName":"batch-iEiCKqECpN8aG9HouTR3j-MAGULONG...
+🧹 Starting cleanup of error sessions...
+✅ Cleared 0 error/stale sessions
+3:54:17 PM [express] POST /api/cleanup-error-sessions 200 in 161ms :: {"success":true,"clearedCount":0,"message":"Successfully cleared 0 error or stale sessions"}
+⭐ No active sessions found in database
+3:54:17 PM [express] GET /api/active-upload-session 304 in 163ms :: {"sessionId":null}
+⭐ No active sessions found in database
+3:54:17 PM [express] GET /api/active-upload-session 304 in 163ms :: {"sessionId":null}
+🧹 Starting cleanup of error sessions...
+✅ Cleared 0 error/stale sessions
+3:54:23 PM [express] POST /api/cleanup-error-sessions 200 in 164ms :: {"success":true,"clearedCount":0,"message":"Successfully cleared 0 error or stale sessions"}
+3:54:24 PM [express] GET /api/real-news/posts 304 in 0ms :: [{"id":"https://newsinfo.inquirer.net/2054943/magnitude-6-3-quake-hits-waters-off-davao-occidental-s...
+📊 USAGE STATS: 0/10000 rows (10000 remaining), resets at 2025-04-23T00:00:00.000Z
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+⭐ No active sessions found in database
+3:54:24 PM [express] GET /api/active-upload-session 304 in 163ms :: {"sessionId":null}
+⚠️ USAGE TRACKING ANOMALY: Database shows 538 processed records but usage counter is 0. This may indicate a tracking issue.
+3:54:24 PM [express] GET /api/usage-stats 304 in 161ms :: {"used":0,"limit":10000,"remaining":10000,"resetAt":"2025-04-23T00:00:00.000Z"}
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+⭐ No active sessions found in database
+3:54:24 PM [express] GET /api/active-upload-session 304 in 161ms :: {"sessionId":null}
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+Error calling Groq API for disaster validation after retries: Request failed with status code 401
+⭐ No active sessions found in database
+3:54:26 PM [express] GET /api/active-upload-session 304 in 162ms :: {"sessionId":null}
+3:54:27 PM [express] GET /api/ai-disaster-news 200 in 3181ms :: [{"id":"https://newsinfo.inquirer.net/2054943/magnitude-6-3-quake-hits-waters-off-davao-occidental-s...
+⭐ No active sessions found in database
+3:54:36 PM [express] GET /api/active-upload-session 304 in 163ms :: {"sessionId":null}
+⭐ No active sessions found in database
+3:54:43 PM [express] GET /api/active-upload-session 304 in 162ms :: {"sessionId":null}

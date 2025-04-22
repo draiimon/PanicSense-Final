@@ -1,0 +1,38 @@
+⭐ No active sessions found in database
+3:55:06 PM [express] GET /api/active-upload-session 304 in 162ms :: {"sessionId":null}
+⭐ No active sessions found in database
+3:55:09 PM [express] GET /api/active-upload-session 304 in 160ms :: {"sessionId":null}
+3:55:14 PM [python-service] Analyzing sentiment for text: MAY SUNOG SA TIP!!!...
+3:55:15 PM [express] GET /api/active-upload-session 200 in 161ms :: {"status":"processing","progress":{"processed":559,"total":3010,"stage":"Completed record 559/3010",...
+3:55:17 PM [python-service] Python process error: 2025-04-22 15:55:17,282 - INFO - Using 89 API keys with rotation for rate limit protection
+
+3:55:17 PM [python-service] Python process error: 2025-04-22 15:55:17,282 - INFO - Loaded 89 API keys for rotation
+2025-04-22 15:55:17,282 - INFO - Using 1 key(s) for validation
+2025-04-22 15:55:17,282 - INFO - API key rotation initialized with 89 keys
+
+3:55:17 PM [python-service] Python process error: 2025-04-22 15:55:17,584 - INFO - JSON parsing skipped (expected for normal text): Expecting value: line 1 column 1 (char 0)
+
+3:55:17 PM [python-service] Python process error: 2025-04-22 15:55:17,610 - INFO - Sentiment analysis - Usage type: REAL-TIME (DeepSeek R1 Distill Llama 70B - 30/min, 1k/day)
+2025-04-22 15:55:17,610 - INFO - Using DeepSeek R1 Distill Llama 70B for real-time sentiment analysis
+
+3:55:17 PM [python-service] Python process error: 2025-04-22 15:55:17,610 - ERROR - Error analyzing text: No module named 'requests'
+
+3:55:17 PM [python-service] Python stdout: {"error": "No module named 'requests'", "sentiment": "Neutral", "confidence": 0.7, "explanation": "Error during analysis", "language": "English"}
+📊 USAGE UPDATE: Incrementing by 1 rows. Previous: 0, New: 1
+📊 CURRENT USAGE: 1/10000 (9999 remaining). Resets: 2025-04-23T00:00:00.000Z
+3:55:17 PM [python-service] 📊 USAGE TRACKING: Single text analysis - incrementing by 1
+3:55:17 PM [python-service] 📊 USAGE TRACKING: Daily usage changed from 0 to 1 (limit: 10000 rows)
+3:55:17 PM [python-service] Adjusted confidence from 0.700 to 0.697
+Sentiment post saved with ID: 1807
+3:55:17 PM [express] POST /api/analyze-text 200 in 2965ms :: {"post":{"id":1807,"text":"MAY SUNOG SA TIP!!!","timestamp":"2025-04-22T15:55:17.797Z","source":"Man...
+3:55:18 PM [express] GET /api/sentiment-posts 200 in 640ms :: [{"id":1267,"text":"Our community is coming together to rebuild. We will overcome this disaster.","t...
+3:55:18 PM [express] GET /api/disaster-events 304 in 655ms :: [{"id":168,"name":"Typhoon in Ilocos Sur","description":"Based on 29 reports from the community. Pri...
+3:55:20 PM [express] GET /api/analyzed-files 304 in 1643ms :: [{"id":48,"originalName":"MAGULONG DATA! (1).csv","storedName":"batch-iEiCKqECpN8aG9HouTR3j-MAGULONG...
+⭐ No active sessions found in database
+3:55:25 PM [express] GET /api/active-upload-session 200 in 165ms :: {"sessionId":null}
+⭐ No active sessions found in database
+3:55:29 PM [express] GET /api/active-upload-session 304 in 165ms :: {"sessionId":null}
+⭐ No active sessions found in database
+3:55:35 PM [express] GET /api/active-upload-session 304 in 164ms :: {"sessionId":null}
+⭐ No active sessions found in database
+3:55:45 PM [express] GET /api/active-upload-session 304 in 166ms :: {"sessionId":null}
