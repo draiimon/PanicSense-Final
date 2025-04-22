@@ -1,6 +1,6 @@
 /**
  * AI Disaster Detector - TypeScript Version
- * Uses OpenAI API through our Python script to provide more intelligent
+ * Uses Groq API through our Python script to provide more intelligent
  * disaster detection and classification than simple keyword matching
  */
 
@@ -8,10 +8,6 @@ import { spawn } from 'child_process';
 import path from 'path';
 import fs from 'fs';
 import os from 'os';
-import * as openaiConfig from './openai-config';
-
-// Check OpenAI API key on startup
-openaiConfig.logOpenAIStatus();
 
 export interface NewsItem {
   id?: string;
@@ -91,15 +87,16 @@ class AIDisasterDetector {
   }
   
   /**
-   * Analyze a news item using our Python script with OpenAI
+   * Analyze a news item using our Python script with Groq API
    */
   async analyzeNewsItem(newsItem: NewsItem): Promise<DisasterAnalysis> {
     // Check cache first
     const cached = this.getCached(newsItem);
     if (cached) return cached;
     
-    if (!this.scriptExists || !process.env.OPENAI_API_KEY) {
+    if (!this.scriptExists || !process.env.GROQ_API_KEY) {
       // Fallback to rule-based approach if Python script or API key is unavailable
+      console.warn("⚠️ Groq API key not found. Using fallback analysis.");
       return this._fallbackAnalysis(newsItem);
     }
     
@@ -115,14 +112,6 @@ class AIDisasterDetector {
       const result = await new Promise<DisasterAnalysis>((resolve, reject) => {
         // Create a copy of process.env to avoid modifying the original
         const env = { ...process.env };
-        
-        // Ensure OpenAI API key is set in environment
-        if (openaiConfig.isOpenAIConfigured()) {
-          const apiKey = openaiConfig.getOpenAIKey();
-          if (apiKey) {
-            env.OPENAI_API_KEY = apiKey;
-          }
-        }
         
         // Spawn Python process with environment variables
         const pythonProcess = spawn('python3', [this.pythonScript, tempFile], { env });
