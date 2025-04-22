@@ -1,6 +1,6 @@
 /**
  * AI Disaster Detector
- * Uses OpenAI API through our Python script to provide more intelligent
+ * Uses Groq API through our Python script to provide more intelligent
  * disaster detection and classification than simple keyword matching
  */
 
@@ -8,10 +8,10 @@ const { spawn } = require('child_process');
 const path = require('path');
 const fs = require('fs');
 const os = require('os');
-const openaiConfig = require('./openai-config');
+const groqConfig = require('./groq-config');
 
-// Check OpenAI API key on startup
-openaiConfig.logOpenAIStatus();
+// Check Groq API key on startup
+groqConfig.logGroqStatus();
 
 class AIDisasterDetector {
   constructor() {
@@ -60,15 +60,16 @@ class AIDisasterDetector {
   }
   
   /**
-   * Analyze a news item using our Python script with OpenAI
+   * Analyze a news item using our Python script with Groq API
    */
   async analyzeNewsItem(newsItem) {
     // Check cache first
     const cached = this.getCached(newsItem);
     if (cached) return cached;
     
-    if (!this.scriptExists || !process.env.OPENAI_API_KEY) {
+    if (!this.scriptExists || !groqConfig.isGroqConfigured()) {
       // Fallback to rule-based approach if Python script or API key is unavailable
+      console.warn("⚠️ Groq API key not found. Using fallback analysis.");
       return this._fallbackAnalysis(newsItem);
     }
     
@@ -85,13 +86,9 @@ class AIDisasterDetector {
         // Create a copy of process.env to avoid modifying the original
         const env = { ...process.env };
         
-        // Ensure OpenAI API key is set in environment
-        if (openaiConfig.isOpenAIConfigured()) {
-          env.OPENAI_API_KEY = openaiConfig.getOpenAIKey();
-        }
-        
-        // Spawn Python process with environment variables
-        const pythonProcess = spawn('python3', [this.pythonScript, tempFile], { env });
+        // Spawn Python process with environment variables 
+        // Use correct argument format for the Python script
+        const pythonProcess = spawn('python3', [this.pythonScript, '--file', tempFile], { env });
         
         let output = '';
         let errorOutput = '';
